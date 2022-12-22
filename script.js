@@ -1,11 +1,5 @@
-// array stored in a variable uses []
-// object stored in a variable key:val {}
-
-// for(var i = 0 ; i <=20; i+=2){
-//     console.log(i)
-// }
-
 var pokeName = document.querySelector('#stats-list')
+
 var pokemon;
 
 function getVal(){
@@ -15,18 +9,17 @@ function getVal(){
 }
 
 async function iChooseU(){
-    // alert(`You chose ${pokemon}!`)
     console.log("Bulbasaur")
     var response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
-    // console.log(response)
     var pokedex = await response.json()
     console.log(pokemon)
     console.log(pokedex)
-
-    // for(var i= 0; i < pokedex.length; i++){
-    //     console.log(i);
-    //     return i;
-    // }
-    pokeName.innerText = `Name: ${pokedex.name} \n Poke-id: ${pokedex.id}  \n Weight: ${pokedex.weight}\n Weight: ${pokedex.height} \n Abilities: ${pokedex.abilities[0].ability.name}`
+    const sprite = newImage(170, 170);
+    sprite.src = `${pokedex.sprites['front_default']}`;
+    console.log(sprite.src)
+    document.body.appendChild(sprite)
+    // const pokeSprite = document.getElementById('sprite-pic');
+    // pokeSprite.append(sprite.src);
+    pokeName.innerText = `Name: ${pokedex.name} \n Poke-id: ${pokedex.id}  \n Weight: ${pokedex.weight}\n Weight: ${pokedex.height} \n Type: ${pokedex.types[0].type.name}\n Abilities: ${pokedex.abilities[0].ability.name}`
     pokemon = "";
 }

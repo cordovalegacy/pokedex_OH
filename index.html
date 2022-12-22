@@ -36,7 +36,7 @@
                     <div id="buttontopPicture2"></div>
                 </div>
                 <div id="picture">
-                    <img src="./img/pokeball.png" alt="Pokemon"
+                    <img id="sprite-pic" src="./img/pokeball.png" alt="Pokemon"
                         height="170" />
                 </div>
                 <div id="buttonbottomPicture"></div>
@@ -70,6 +70,10 @@
         </div>
         <div id="right">
             <div id="stats">
+                <div>
+                    <label>Poke Search:</label>
+                    <input id="search-bar" type="text" placeholder="Pokemon Names" onchange="getVal()" />
+                </div>
                 <ul id="stats-list"></ul>
                 <!-- <strong>Name:</strong> Psyduck<br />
                 <strong>Type:</strong> Water<br />
@@ -103,10 +107,6 @@
             <div id="curve1_right"></div>
             <div id="curve2_right"></div>
         </div>
-    </div>
-    <div>
-        <label>Poke Search:</label>
-        <input type="text" placeholder="Pokemon Names" onchange="getVal()" />
     </div>
 </body>
 
